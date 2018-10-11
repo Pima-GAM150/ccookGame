@@ -494,6 +494,26 @@ Transform:
   m_Father: {fileID: 1791265200}
   m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
+--- !u!1 &94863992 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1048964590482310, guid: 5b1d57fb9986c414ebf5042d80932cae,
+    type: 2}
+  m_PrefabInternal: {fileID: 2034970527}
+--- !u!114 &94863993
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 94863992}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ec749e254b8e4b4f9afeb85584c891b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mouseSensSlider: {fileID: 236781745}
+  playerCamera: {fileID: 1213611980070382, guid: 404c7a6d0d50ae543b5d3b581e2b910b,
+    type: 2}
+  camMove: {fileID: 114229925040151478, guid: 404c7a6d0d50ae543b5d3b581e2b910b, type: 2}
 --- !u!1 &116575517
 GameObject:
   m_ObjectHideFlags: 0
@@ -1605,6 +1625,12 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!114 &236781745 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 114687734788832904, guid: 9f1eefc107b43e1488d1c5eb16d394b2,
+    type: 2}
+  m_PrefabInternal: {fileID: 1099380580}
+  m_Script: {fileID: -113659843, guid: f70555f144d8491a825f0804e09c671c, type: 3}
 --- !u!1 &268777551
 GameObject:
   m_ObjectHideFlags: 0
