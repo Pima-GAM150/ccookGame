@@ -53,3 +53,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bossCounter: 0
   health: 100
+  exitSpawn: 0

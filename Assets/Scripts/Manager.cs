@@ -8,6 +8,7 @@ public class Manager : MonoBehaviour {
 	
 	public int bossCounter;
 	public int health;
+	public int exitSpawn;
 	
 	public static Manager singleton;
 
