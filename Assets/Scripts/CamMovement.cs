@@ -14,7 +14,8 @@ public class CamMovement : MonoBehaviour {
 
     void Start()
     {
-        
+        sensitivity = PlayerPrefs.GetFloat("Camera Sensitivity", 5f);
+
         player = this.transform.parent.gameObject;
  
     }
