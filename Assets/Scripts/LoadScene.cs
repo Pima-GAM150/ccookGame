@@ -11,7 +11,8 @@ public class LoadScene : MonoBehaviour {
 	
 	void Start ( )
 	{
-		mngr = manager.GetComponent<Manager>();
+        manager = GameObject.Find("manager");
+        mngr = manager.GetComponent<Manager>();
 	}
 	void OnTriggerEnter (Collider col)
 	{

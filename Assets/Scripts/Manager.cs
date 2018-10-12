@@ -4,7 +4,8 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class Manager : MonoBehaviour {
-	
+
+    public Tunnel startingTunnel;
 	
 	public int bossCounter;
 	public int health;
@@ -12,7 +13,9 @@ public class Manager : MonoBehaviour {
 	
 	public static Manager singleton;
 
-	void Start()
+    public Tunnel currentTunnel;
+
+	void Awake()
 	{
 		if (singleton == null)
 		{

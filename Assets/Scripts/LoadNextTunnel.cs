@@ -4,28 +4,17 @@ using UnityEngine;
 
 public class LoadNextTunnel : MonoBehaviour {
 
-	public GameObject straightTunnel;
-	public GameObject leftTunnel;
-	public GameObject rightTunnel;
-	public GameObject exit;
-    GameObject socket;
-	GameObject manager;
-	public Manager mngr;	
+	public Tunnel straightTunnel;
+	public Tunnel leftTunnel;
+	public Tunnel rightTunnel;
+	public Tunnel exit;
 	
 	Vector3 thisObjectsPosition;
 
 	public float rng = 0f;
 	void Start () {
-        socket = GameObject.Find("socket");
-        manager = GameObject.Find("manager");
-        mngr = manager.GetComponent<Manager>();
-		//thisObjectsPosition.x = this.gameObject.transform.position.x;
-		//thisObjectsPosition.y = this.gameObject.transform.position.y;
-		//thisObjectsPosition.z = this.gameObject.transform.position.z;
-		//Debug.Log(thisObjectsPosition);
-
-		//need to find out how to instantiate objects as a child of another to make placing them easier!
-	}
+        if( Manager.singleton.currentTunnel == null ) Manager.singleton.currentTunnel = Manager.singleton.startingTunnel;
+    }
 	
 	// Update is called once per frame
 	void Update () {
@@ -35,35 +24,53 @@ public class LoadNextTunnel : MonoBehaviour {
 	void OnTriggerEnter(Collider col)
 	{
 		if (col.gameObject.name == "Player")
-			{
+		{
 				Vector3 relativePos = transform.InverseTransformPoint(col.transform.position);
-				if (relativePos.z > 0)
+				if (relativePos.y > 0)
 				{
-					rng = Random.Range(0f, 3f);
-					if (rng >= 2f)
-					{	
-						GameObject newStraight = Instantiate<GameObject>(straightTunnel);
-                        newStraight.transform.position = new Vector3(socket.transform.position.x, socket.transform.position.y, socket.transform.position.z); //(4f, -9f, 46.5f);
-						mngr.exitSpawn += 1;
-					}
+                    if (Manager.singleton.exitSpawn >= 5)
+                    {
 
-					else if (rng >= 1f)
-					{
-						GameObject newLeft = Instantiate<GameObject>(leftTunnel);
-                        newLeft.transform.position = new Vector3(socket.transform.position.x, socket.transform.position.y, socket.transform.position.z); //(7.5f, -12f, 44f);
-						mngr.exitSpawn += 1;
-					}
+                        Tunnel newExit = Instantiate<Tunnel>(exit);
+                    newExit.transform.position = new Vector3(currentTunnel.socket.transform.position.x, currentTunnel.socket.transform.position.y, currentTunnel.socket.transform.position.z);
+                }
+                    else
+                    {
+                    
+                        rng = Random.Range(0f, 3f);
+                        if (rng >= 2f)
+                        {
+                            Tunnel newStraight = Instantiate<Tunnel>(straightTunnel);
+                        newStraight.transform.position = new Vector3(currentTunnel.socket.transform.position.x, currentTunnel.socket.transform.position.y, currentTunnel.socket.transform.position.z);
+                        Manager.singleton.exitSpawn += 1;
+                        currentTunnel = newStraight;
+                        Debug.Log(rng);
+                        }
 
-					else if (rng >= 0f)
-					{
-						GameObject newRight = Instantiate<GameObject>(rightTunnel);
-                        newRight.transform.position = new Vector3(socket.transform.position.x, socket.transform.position.y, socket.transform.position.z); //(0.5f, -6f, 44.5f);
-						mngr.exitSpawn += 1;
-					}
-				}
-				Destroy();
-				
-			}
+                        else if (rng >= 1f)
+                        {
+                            Tunnel newLeft = Instantiate<Tunnel>(leftTunnel);
+                        newLeft.transform.position = new Vector3(currentTunnel.socket.transform.position.x, currentTunnel.socket.transform.position.y, currentTunnel.socket.transform.position.z);
+                        Manager.singleton.exitSpawn += 1;
+                        currentTunnel = newLeft;
+                        Debug.Log(rng);
+                        }
+
+                        else if (rng >= 0f)
+                        {
+                            Tunnel newRight = Instantiate<Tunnel>(rightTunnel);
+                        newRight.transform.position = new Vector3(currentTunnel.socket.transform.position.x, currentTunnel.socket.transform.position.y, currentTunnel.socket.transform.position.z);
+                        Manager.singleton.exitSpawn += 1;
+                        currentTunnel = newRight;
+                        Debug.Log(rng);
+                        }
+                    }
+                    
+                    Destroy();
+                }
+
+            Debug.Log("I hit");
+        }
 
 		
 
@@ -72,7 +79,12 @@ public class LoadNextTunnel : MonoBehaviour {
 	void Destroy()
 	{
 		Destroy(this.gameObject);
+        
 	}
 	
-
+    public Tunnel currentTunnel
+    {
+        get { return Manager.singleton.currentTunnel; }
+        set { Manager.singleton.currentTunnel = value; }
+    }
 }
