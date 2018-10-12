@@ -386,7 +386,7 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1879540751868910}
-  m_LocalRotation: {x: -0, y: -1, z: -0, w: 0}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 1, y: 0.5, z: -70}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -3411,7 +3411,6 @@ MonoBehaviour:
   rightTunnel: {fileID: 114109846725036310, guid: b9c1a4df8b347294bafb154c73cc20be,
     type: 2}
   exit: {fileID: 114033219857515892, guid: 7d98911863756584ca33c72293903c14, type: 2}
-  mngr: {fileID: 114190357966834024, guid: 5b1d57fb9986c414ebf5042d80932cae, type: 2}
   rng: 0
 --- !u!114 &114963679970882394
 MonoBehaviour:

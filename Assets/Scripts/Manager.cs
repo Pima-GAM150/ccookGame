@@ -10,6 +10,7 @@ public class Manager : MonoBehaviour {
 	public int bossCounter;
 	public int health;
 	public int exitSpawn;
+	public float currentRotation;
 	
 	public static Manager singleton;
 

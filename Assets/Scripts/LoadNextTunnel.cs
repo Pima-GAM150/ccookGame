@@ -9,11 +9,13 @@ public class LoadNextTunnel : MonoBehaviour {
 	public Tunnel rightTunnel;
 	public Tunnel exit;
 	
+	
 	Vector3 thisObjectsPosition;
 
 	public float rng = 0f;
 	void Start () {
         if( Manager.singleton.currentTunnel == null ) Manager.singleton.currentTunnel = Manager.singleton.startingTunnel;
+
     }
 	
 	// Update is called once per frame
@@ -42,34 +44,43 @@ public class LoadNextTunnel : MonoBehaviour {
                         {
                             Tunnel newStraight = Instantiate<Tunnel>(straightTunnel);
                         newStraight.transform.position = new Vector3(currentTunnel.socket.transform.position.x, currentTunnel.socket.transform.position.y, currentTunnel.socket.transform.position.z);
+                        newStraight.transform.localRotation = currentTunnel.socket.transform.localRotation;
                         Manager.singleton.exitSpawn += 1;
                         currentTunnel = newStraight;
-                        Debug.Log(rng);
+                        newStraight.socket.transform.rotation = Quaternion.Euler(0f, Manager.singleton.currentRotation, 0f);
+                        
                         }
 
                         else if (rng >= 1f)
                         {
                             Tunnel newLeft = Instantiate<Tunnel>(leftTunnel);
                         newLeft.transform.position = new Vector3(currentTunnel.socket.transform.position.x, currentTunnel.socket.transform.position.y, currentTunnel.socket.transform.position.z);
+                        newLeft.transform.localRotation = currentTunnel.socket.transform.localRotation;
                         Manager.singleton.exitSpawn += 1;
                         currentTunnel = newLeft;
-                        Debug.Log(rng);
+                        Manager.singleton.currentRotation += -90f;
+                        newLeft.socket.transform.rotation = Quaternion.Euler(0f, Manager.singleton.currentRotation, 0f);
+                        
                         }
 
                         else if (rng >= 0f)
                         {
                             Tunnel newRight = Instantiate<Tunnel>(rightTunnel);
                         newRight.transform.position = new Vector3(currentTunnel.socket.transform.position.x, currentTunnel.socket.transform.position.y, currentTunnel.socket.transform.position.z);
+                        newRight.transform.localRotation = currentTunnel.socket.transform.localRotation;
                         Manager.singleton.exitSpawn += 1;
                         currentTunnel = newRight;
-                        Debug.Log(rng);
+                        Manager.singleton.currentRotation += 90f;
+                        newRight.socket.transform.rotation = Quaternion.Euler(0f, Manager.singleton.currentRotation, 0f);
+
+                        
                         }
                     }
                     
                     Destroy();
                 }
 
-            Debug.Log("I hit");
+            
         }
 
 		

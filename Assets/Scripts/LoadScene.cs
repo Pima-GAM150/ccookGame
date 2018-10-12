@@ -24,6 +24,7 @@ public class LoadScene : MonoBehaviour {
 				if (relativePos.z > 0)
 				{
 					mngr.LoadNewScene();
+					Manager.singleton.currentRotation = 0f;
 				}
 				
 				

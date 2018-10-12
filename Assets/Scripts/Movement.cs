@@ -29,7 +29,9 @@ public class Movement : MonoBehaviour {
 
 
         vertical = Input.GetAxis("Vertical");
-        //horizontal = Input.GetAxis("Horizontal");
+        horizontal = Input.GetAxis("Horizontal");
+        
+
         if (Input.GetAxis("Jump") > 0)
         {
             if (isGrounded)
@@ -37,9 +39,13 @@ public class Movement : MonoBehaviour {
                 body.AddForce(transform.up * jumpForce);
             }
         }
+        
+      
+
         Vector3 velocity = (transform.forward * vertical) * speed * Time.fixedDeltaTime;
         velocity.y = body.velocity.y;
         body.velocity = velocity;
+        //velocity.x = (transform.right * horizontal) * speed * Time.fixedDeltaTime;
         
 
         //transform.Rotate((transform.up * horizontal) * rotationSpeed * Time.fixedDeltaTime);
