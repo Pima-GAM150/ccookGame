@@ -38,8 +38,16 @@ public class Manager : MonoBehaviour {
 		}
 		else 
 		{
+			
 			SceneManager.LoadScene("LevelScene");
+			GameObject enter = GameObject.Find("NewSceneTrigger");
+			enter.SetActive(true);
+			exitSpawn = 0;
+			currentTunnel = null;
+			
 		}
+
+
 
 
 	}		

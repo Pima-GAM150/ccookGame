@@ -194,7 +194,7 @@ GameObject:
   - component: {fileID: 64350846529803590}
   m_Layer: 0
   m_Name: Straight Tunnel (1)
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 127

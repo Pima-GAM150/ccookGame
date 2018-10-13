@@ -25,7 +25,7 @@ GameObject:
   - component: {fileID: 64905122017748604}
   m_Layer: 0
   m_Name: Straight Tunnel
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 127
@@ -125,7 +125,7 @@ GameObject:
   - component: {fileID: 114295877905087306}
   m_Layer: 0
   m_Name: Straight Tunnel
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -734,7 +734,6 @@ MonoBehaviour:
   rightTunnel: {fileID: 114109846725036310, guid: b9c1a4df8b347294bafb154c73cc20be,
     type: 2}
   exit: {fileID: 114033219857515892, guid: 7d98911863756584ca33c72293903c14, type: 2}
-  mngr: {fileID: 114190357966834024, guid: 5b1d57fb9986c414ebf5042d80932cae, type: 2}
   rng: 0
 --- !u!114 &114295877905087306
 MonoBehaviour:

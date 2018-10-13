@@ -34,8 +34,10 @@ public class LoadNextTunnel : MonoBehaviour {
                     {
 
                         Tunnel newExit = Instantiate<Tunnel>(exit);
-                    newExit.transform.position = new Vector3(currentTunnel.socket.transform.position.x, currentTunnel.socket.transform.position.y, currentTunnel.socket.transform.position.z);
-                }
+                    	newExit.transform.position = new Vector3(currentTunnel.socket.transform.position.x, currentTunnel.socket.transform.position.y, currentTunnel.socket.transform.position.z);
+                    	newExit.transform.localRotation = currentTunnel.socket.transform.localRotation;
+                    	
+                	}
                     else
                     {
                     
@@ -47,7 +49,7 @@ public class LoadNextTunnel : MonoBehaviour {
                         newStraight.transform.localRotation = currentTunnel.socket.transform.localRotation;
                         Manager.singleton.exitSpawn += 1;
                         currentTunnel = newStraight;
-                        newStraight.socket.transform.rotation = Quaternion.Euler(0f, Manager.singleton.currentRotation, 0f);
+                        newStraight.socket.transform.localEulerAngles = new Vector3(0f, Manager.singleton.currentRotation, 0f);
                         
                         }
 
@@ -59,7 +61,7 @@ public class LoadNextTunnel : MonoBehaviour {
                         Manager.singleton.exitSpawn += 1;
                         currentTunnel = newLeft;
                         Manager.singleton.currentRotation += -90f;
-                        newLeft.socket.transform.rotation = Quaternion.Euler(0f, Manager.singleton.currentRotation, 0f);
+                        newLeft.socket.transform.localEulerAngles = new Vector3(0f, Manager.singleton.currentRotation, 0f);
                         
                         }
 
@@ -71,13 +73,13 @@ public class LoadNextTunnel : MonoBehaviour {
                         Manager.singleton.exitSpawn += 1;
                         currentTunnel = newRight;
                         Manager.singleton.currentRotation += 90f;
-                        newRight.socket.transform.rotation = Quaternion.Euler(0f, Manager.singleton.currentRotation, 0f);
+                        newRight.socket.transform.localEulerAngles = new Vector3(0f, Manager.singleton.currentRotation, 0f);
 
                         
                         }
                     }
                     
-                    Destroy();
+                    Disable();
                 }
 
             
@@ -87,9 +89,10 @@ public class LoadNextTunnel : MonoBehaviour {
 
 	}
 
-	void Destroy()
+	void Disable()
 	{
-		Destroy(this.gameObject);
+		 GameObject trigger = this.gameObject;
+		trigger.SetActive(false);
         
 	}
 	

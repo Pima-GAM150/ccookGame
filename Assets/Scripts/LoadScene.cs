@@ -6,13 +6,11 @@ using UnityEngine.SceneManagement;
 
 public class LoadScene : MonoBehaviour {
 
-	public GameObject manager;
-	public Manager mngr;	
+		
 	
 	void Start ( )
 	{
-        manager = GameObject.Find("manager");
-        mngr = manager.GetComponent<Manager>();
+        
 	}
 	void OnTriggerEnter (Collider col)
 	{
@@ -23,7 +21,7 @@ public class LoadScene : MonoBehaviour {
 				Vector3 relativePos = transform.InverseTransformPoint(col.transform.position);
 				if (relativePos.z > 0)
 				{
-					mngr.LoadNewScene();
+					Manager.singleton.LoadNewScene();
 					Manager.singleton.currentRotation = 0f;
 				}
 				

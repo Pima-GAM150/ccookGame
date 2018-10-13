@@ -38,7 +38,7 @@ GameObject:
   - component: {fileID: 114033219857515892}
   m_Layer: 0
   m_Name: Exit
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -112,7 +112,7 @@ GameObject:
   m_IsActive: 1
 --- !u!1 &1366171485811250
 GameObject:
-  m_ObjectHideFlags: 1
+  m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 6
@@ -141,7 +141,7 @@ GameObject:
   - component: {fileID: 64880550424607668}
   m_Layer: 0
   m_Name: Exit
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 127
@@ -155,7 +155,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4988794635320592}
   - component: {fileID: 65189694122761390}
-  - component: {fileID: 114565368681665622}
+  - component: {fileID: 114913664879151362}
   m_Layer: 0
   m_Name: NewSceneTrigger
   m_TagString: Untagged
@@ -182,11 +182,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1366171485811250}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: 1, z: -0, w: 0}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 4988794635320592}
+  m_Father: {fileID: 4937057636566716}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4488210913452988
@@ -209,7 +209,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1722704687581654}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 2, y: -1, z: 5}
+  m_LocalPosition: {x: 0.5, y: -0.5, z: 5.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4828165644310360}
@@ -218,7 +218,7 @@ Transform:
   - {fileID: 4698162488264928}
   - {fileID: 4094290165163646}
   m_Father: {fileID: 4937057636566716}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4614953890993098
 Transform:
@@ -269,6 +269,7 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
+  - {fileID: 4373070240495660}
   - {fileID: 4585041925596628}
   - {fileID: 4988794635320592}
   m_Father: {fileID: 0}
@@ -283,10 +284,9 @@ Transform:
   m_LocalRotation: {x: -0, y: 1, z: -0, w: 0}
   m_LocalPosition: {x: -1, y: 5, z: 25}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 4373070240495660}
+  m_Children: []
   m_Father: {fileID: 4937057636566716}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!23 &23422573562223496
 MeshRenderer:
@@ -8405,26 +8405,6 @@ MonoBehaviour:
   m_selectedFaces: 
   m_SelectedEdges: []
   m_selectedTriangles: 
---- !u!114 &114565368681665622
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1773203385489114}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c4b529ddc124a63449c9b407825e90b3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  straightTunnel: {fileID: 114295877905087306, guid: c8447407fcde7e94b9775d65828915a6,
-    type: 2}
-  leftTunnel: {fileID: 114669832176387254, guid: 0c628b2a103b54d4d98cd919268edc17,
-    type: 2}
-  rightTunnel: {fileID: 114109846725036310, guid: b9c1a4df8b347294bafb154c73cc20be,
-    type: 2}
-  exit: {fileID: 114033219857515892}
-  mngr: {fileID: 114190357966834024, guid: 5b1d57fb9986c414ebf5042d80932cae, type: 2}
-  rng: 0
 --- !u!114 &114862190873935040
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -8966,3 +8946,14 @@ MonoBehaviour:
   m_selectedFaces: 
   m_SelectedEdges: []
   m_selectedTriangles: 
+--- !u!114 &114913664879151362
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1773203385489114}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5bdb4ad8fa53feb47ad986ef8582164b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
