@@ -9,7 +9,7 @@ public class Movement : MonoBehaviour {
     public float rotationSpeed;
     public float jumpForce;
     private float vertical;
-    //private float horizontal;
+    private float horizontal;
     private bool isGrounded;
     GameObject player;
     
@@ -29,7 +29,7 @@ public class Movement : MonoBehaviour {
 
 
         vertical = Input.GetAxis("Vertical");
-        //horizontal = Input.GetAxis("Horizontal");
+        horizontal = Input.GetAxis("Horizontal");
         
 
         if (Input.GetAxis("Jump") > 0)
@@ -42,13 +42,10 @@ public class Movement : MonoBehaviour {
         
       
 
-        Vector3 velocity = (transform.forward * vertical) * speed * Time.fixedDeltaTime;
+        Vector3 velocity = ((transform.forward * vertical) + (transform.right * horizontal)) * speed * Time.fixedDeltaTime;
+
         velocity.y = body.velocity.y;
         body.velocity = velocity;
-        //velocity.x = (transform.right * horizontal) * speed * Time.fixedDeltaTime;
-        
-
-        //transform.Rotate((transform.up * horizontal) * rotationSpeed * Time.fixedDeltaTime);
     }
     void OnCollisionEnter(Collision collision)
     {

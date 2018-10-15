@@ -30,6 +30,8 @@ public class LoadNextTunnel : MonoBehaviour {
 				Vector3 relativePos = transform.InverseTransformPoint(col.transform.position);
 				if (relativePos.y > 0)
 				{
+
+
                     if (Manager.singleton.exitSpawn >= 5)
                     {
 
