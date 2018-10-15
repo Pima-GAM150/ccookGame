@@ -9,7 +9,7 @@ public class Movement : MonoBehaviour {
     public float rotationSpeed;
     public float jumpForce;
     private float vertical;
-    private float horizontal;
+    //private float horizontal;
     private bool isGrounded;
     GameObject player;
     
@@ -29,7 +29,7 @@ public class Movement : MonoBehaviour {
 
 
         vertical = Input.GetAxis("Vertical");
-        horizontal = Input.GetAxis("Horizontal");
+        //horizontal = Input.GetAxis("Horizontal");
         
 
         if (Input.GetAxis("Jump") > 0)
