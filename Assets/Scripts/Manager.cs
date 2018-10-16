@@ -4,15 +4,18 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class Manager : MonoBehaviour {
+	
 
+	public static Manager singleton;
     public Tunnel startingTunnel;
 	
 	public int bossCounter;
-	public int health;
+	public float health;
 	public int exitSpawn;
 	public float currentRotation;
+	public bool attackingPlayer = false;
 	
-	public static Manager singleton;
+	
 
     public Tunnel currentTunnel;
 

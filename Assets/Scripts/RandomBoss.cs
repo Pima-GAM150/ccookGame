@@ -10,7 +10,7 @@ public class RandomBoss : MonoBehaviour {
 
 
 	void Start () {
-		rng = Random.Range(0f, 2f);
+		/*rng = Random.Range(0f, 2f);
 
 		if (rng >= 1f)
         {
@@ -24,10 +24,8 @@ public class RandomBoss : MonoBehaviour {
         	newUndeadBoss.transform.position = new Vector3(45, -5, 6);
 
         }
+	}*/
 	}
-	
 	// Update is called once per frame
-	void Update () {
-		
-	}
+	
 }
