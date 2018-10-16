@@ -13,16 +13,7 @@ public class LoadNextTunnel : MonoBehaviour {
 	Vector3 thisObjectsPosition;
 
 	public float rng = 0f;
-	void Start () {
-        if( Manager.singleton.currentTunnel == null ) Manager.singleton.currentTunnel = Manager.singleton.startingTunnel;
-
-    }
 	
-	// Update is called once per frame
-	void Update () {
-		
-	}
-
 	void OnTriggerEnter(Collider col)
 	{
 		if (col.gameObject.name == "Player")
@@ -31,13 +22,12 @@ public class LoadNextTunnel : MonoBehaviour {
 				if (relativePos.y > 0)
 				{
 
-
                     if (Manager.singleton.exitSpawn >= 5)
                     {
 
-                        Tunnel newExit = Instantiate<Tunnel>(exit);
-                    	newExit.transform.position = new Vector3(currentTunnel.socket.transform.position.x, currentTunnel.socket.transform.position.y, currentTunnel.socket.transform.position.z);
-                    	newExit.transform.localRotation = currentTunnel.socket.transform.localRotation;
+                        Tunnel newTunnel = Instantiate<Tunnel>(exit);
+                    	newTunnel.transform.position = new Vector3(currentTunnel.socket.transform.position.x, currentTunnel.socket.transform.position.y, currentTunnel.socket.transform.position.z);
+                    	newTunnel.transform.localRotation = currentTunnel.socket.transform.localRotation;
                     	
                 	}
                     else
@@ -46,36 +36,39 @@ public class LoadNextTunnel : MonoBehaviour {
                         rng = Random.Range(0f, 3f);
                         if (rng >= 2f)
                         {
-                            Tunnel newStraight = Instantiate<Tunnel>(straightTunnel);
-                        newStraight.transform.position = new Vector3(currentTunnel.socket.transform.position.x, currentTunnel.socket.transform.position.y, currentTunnel.socket.transform.position.z);
-                        newStraight.transform.localRotation = currentTunnel.socket.transform.localRotation;
+                        Tunnel newTunnel = Instantiate<Tunnel>(straightTunnel);
+
+                        newTunnel.transform.position = new Vector3(currentTunnel.socket.transform.position.x, currentTunnel.socket.transform.position.y, currentTunnel.socket.transform.position.z);
+                        newTunnel.transform.localRotation = currentTunnel.socket.transform.localRotation;
                         Manager.singleton.exitSpawn += 1;
-                        currentTunnel = newStraight;
-                        newStraight.socket.transform.localEulerAngles = new Vector3(0f, Manager.singleton.currentRotation, 0f);
+                        currentTunnel = newTunnel;
+                        newTunnel.socket.transform.localEulerAngles = new Vector3(0f, Manager.singleton.currentRotation, 0f);
                         
                         }
 
                         else if (rng >= 1f)
                         {
-                            Tunnel newLeft = Instantiate<Tunnel>(leftTunnel);
-                        newLeft.transform.position = new Vector3(currentTunnel.socket.transform.position.x, currentTunnel.socket.transform.position.y, currentTunnel.socket.transform.position.z);
-                        newLeft.transform.localRotation = currentTunnel.socket.transform.localRotation;
+                        Tunnel newTunnel = Instantiate<Tunnel>(leftTunnel);
+
+                        newTunnel.transform.position = new Vector3(currentTunnel.socket.transform.position.x, currentTunnel.socket.transform.position.y, currentTunnel.socket.transform.position.z);
+                        newTunnel.transform.localRotation = currentTunnel.socket.transform.localRotation;
                         Manager.singleton.exitSpawn += 1;
-                        currentTunnel = newLeft;
+                        currentTunnel = newTunnel;
                         Manager.singleton.currentRotation += -90f;
-                        newLeft.socket.transform.localEulerAngles = new Vector3(0f, Manager.singleton.currentRotation, 0f);
+                        newTunnel.socket.transform.localEulerAngles = new Vector3(0f, Manager.singleton.currentRotation, 0f);
                         
                         }
 
                         else if (rng >= 0f)
                         {
-                            Tunnel newRight = Instantiate<Tunnel>(rightTunnel);
-                        newRight.transform.position = new Vector3(currentTunnel.socket.transform.position.x, currentTunnel.socket.transform.position.y, currentTunnel.socket.transform.position.z);
-                        newRight.transform.localRotation = currentTunnel.socket.transform.localRotation;
+                        Tunnel newTunnel = Instantiate<Tunnel>(rightTunnel);
+
+                        newTunnel.transform.position = new Vector3(currentTunnel.socket.transform.position.x, currentTunnel.socket.transform.position.y, currentTunnel.socket.transform.position.z);
+                        newTunnel.transform.localRotation = currentTunnel.socket.transform.localRotation;
                         Manager.singleton.exitSpawn += 1;
-                        currentTunnel = newRight;
+                        currentTunnel = newTunnel;
                         Manager.singleton.currentRotation += 90f;
-                        newRight.socket.transform.localEulerAngles = new Vector3(0f, Manager.singleton.currentRotation, 0f);
+                        newTunnel.socket.transform.localEulerAngles = new Vector3(0f, Manager.singleton.currentRotation, 0f);
 
                         
                         }
@@ -93,7 +86,7 @@ public class LoadNextTunnel : MonoBehaviour {
 
 	void Disable()
 	{
-		 GameObject trigger = this.gameObject;
+		GameObject trigger = this.gameObject;
 		trigger.SetActive(false);
         
 	}
