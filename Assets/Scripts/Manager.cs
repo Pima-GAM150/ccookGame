@@ -53,8 +53,8 @@ public class Manager : MonoBehaviour {
 
 
 
-	}		
-
+	}
+	
 	
 	
 

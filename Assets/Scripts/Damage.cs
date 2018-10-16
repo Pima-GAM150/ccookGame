@@ -2,77 +2,86 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Damage : MonoBehaviour {
-	public HealthBar health;
-	public GameObject healthBar;
-	public bool attackingPlayer;
-	public float counter;
+public class Damage : CamMovement {
 	
+	public bool canAttack;
+	public bool canDealDMG;
+	public EnemyHealth enemyHP;
+	public GameObject enemy;
 	
 	void Start () {
-		attackingPlayer = false;
-		health = healthBar.GetComponent<HealthBar>();
-		counter = 0f;
+		
+		canAttack = true;
+		anim = gameObject.GetComponentInParent<Animator>();
+		
 	}
 	
 	// Update is called once per frame
-	void Update () {
+	void FixedUpdate () {
 		
-		if (attackingPlayer == true)
-		{
-			counter += Time.deltaTime;
-			if (counter > 3f)
-			{
-				if (this.gameObject.name == "LumberJack")
-				{
-					health.takeDMG( 10f );
-				}
-				if (this.gameObject.name == "VillageHero")
-				{
-					health.takeDMG( 15f );
-				}
-				if (this.gameObject.name == "Enemy")
-				{
-					health.takeDMG( 5f );
-				}
-				counter = 0f;
-			}
-		}
+		
+		if (Input.GetMouseButtonDown(0))
+       {
+            anim.SetTrigger("attack");
+            
+            if(canDealDMG == true)
+            {
+            	dealDMG();
+            }
+        	
+
+       }
+       
+       
 	}
 
 	void OnTriggerEnter (Collider col)
 	{
-		
-			
+		if(canAttack == true)
+		{	
 
-			if (col.gameObject.name == "Player")
+			if (col.gameObject.tag == "Enemy")
 			{
-				attackingPlayer = true;
+				enemy = col.gameObject;
 				
-				
-				if (this.gameObject.name == "LumberJack")
-				{
-					health.takeDMG( 10f );
-				}
-				if (this.gameObject.name == "VillageHero")
-				{
-					health.takeDMG( 15f );
-				}
-				if (this.gameObject.name == "Enemy")
-				{
-					health.takeDMG( 5f );
-				}
-			}	
+				canDealDMG = true;
+				Debug.Log("I am hitting this " + enemy);
+				canAttack = false;
+			
+			}
+		}
+		else
+		{
+			canAttack = false;
+		}	
 	}
 
 	void OnTriggerExit (Collider col)
 	{
 		
 			
-			if (col.gameObject.name == "Player")
+			if (col.gameObject.tag == "Enemy")
 			{
-				attackingPlayer = false;
 				
+				canDealDMG = false;
+				canAttack = true;
 			}
+	}
+
+	void dealDMG()
+	{
+		if(enemy.tag == "Enemy")
+		{
+			enemyHP = enemy.GetComponent<EnemyHealth>();
+			enemyHP.takeDMG(25f);
+			
+		}
+		else
+		{
+			enemyHP = enemy.GetComponent<EnemyHealth>();
+			enemyHP.takeDMG(18f);
+			
+		}
+
 	}
 }

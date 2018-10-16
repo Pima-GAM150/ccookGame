@@ -3,12 +3,16 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class EnemyHealth : MonoBehaviour {
+public  class EnemyHealth : MonoBehaviour {
 	public Image bar;
-	public float health;
-	public GameObject parent;
+	public float enemyHealth;
+	public GameObject enemyHPBar;
+	
+
+
 	void Start () {
-	health = 100;	
+	enemyHealth = 100;
+	enemyHPBar = GameObject.Find("EnemyHP BG");
 	}
 	
 	// Update is called once per frame
@@ -18,9 +22,9 @@ public class EnemyHealth : MonoBehaviour {
 
 	public void takeDMG( float damageTaken)
     {
-        health = health - damageTaken;
-        bar.fillAmount = health / 100f;
-        if (health <= 0f)
+        enemyHealth = enemyHealth - damageTaken;
+        bar.fillAmount = enemyHealth / 100f;
+        if (enemyHealth <= 0f)
         {
         	Destroy();
         }
@@ -29,5 +33,6 @@ public class EnemyHealth : MonoBehaviour {
     void Destroy()
     {
     	Destroy(this.gameObject);
+    	enemyHPBar.SetActive(false);
     }
 }

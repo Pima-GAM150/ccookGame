@@ -393,6 +393,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 4162463389925884, guid: 404c7a6d0d50ae543b5d3b581e2b910b, type: 2}
+  attackingPlayer: 0
+  counter: 0
+  bar: {fileID: 0}
+  healthBar: {fileID: 0}
 --- !u!136 &136952192860870162
 CapsuleCollider:
   m_ObjectHideFlags: 1

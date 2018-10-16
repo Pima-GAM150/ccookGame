@@ -10,12 +10,14 @@ public class CamMovement : MonoBehaviour {
     public float sensitivity = 5.0f;
     public float smoothing = 2.0f;
     GameObject player;
-
-
+    public Animator anim;
+    
     void Start()
     {
         sensitivity = PlayerPrefs.GetFloat("Camera Sensitivity", 5f);
-
+        Cursor.visible = false;
+        anim = GetComponent<Animator>();
+        Cursor.lockState = CursorLockMode.Locked;
         player = this.transform.parent.gameObject;
  
     }
@@ -30,5 +32,7 @@ public class CamMovement : MonoBehaviour {
 
         transform.localRotation = Quaternion.AngleAxis(-mouseLook.y, Vector3.right);
         player.transform.localRotation = Quaternion.AngleAxis(mouseLook.x, player.transform.up);
+
+        
 }
 }

@@ -10,8 +10,8 @@ public class EnemyController : MonoBehaviour {
 	public bool attackingPlayer;
 	public float counter;
 	public Image bar;
-
-
+	public HealthBar healthBar;
+	public GameObject enemyHPBar;
 
 	void Start()
 	{
@@ -28,12 +28,14 @@ public class EnemyController : MonoBehaviour {
 		counter += Time.deltaTime;
 		if(Vector3.Distance(target.transform.position, this.transform.position) < 30)
 		{
+			enemyHPBar.SetActive(true);
+			
 			Vector3 direction = target.transform.position - this.transform.position;
 			direction.y = 0;
 
 			this.transform.rotation = Quaternion.Slerp(this.transform.rotation, Quaternion.LookRotation(direction), 0.1f);
 
-			if (direction.magnitude > 2)
+			if (direction.magnitude > 3)
 			{
 				this.transform.Translate(0,0,0.05f);
 				anim.SetBool("isAttacking",false);
@@ -87,7 +89,7 @@ public class EnemyController : MonoBehaviour {
 	{
 		Manager.singleton.health -= damage;
 		counter = 0f;
-		bar.fillAmount = Manager.singleton.health / 100f;
+		healthBar.healthRegenCounter = 0f;
 		
 
 		if (Manager.singleton.health < 0)

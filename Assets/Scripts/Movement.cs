@@ -12,22 +12,21 @@ public class Movement : MonoBehaviour {
     private float horizontal;
     private bool isGrounded;
     GameObject player;
+    public Rigidbody enemy;
+    public EnemyHealth enemyHP;
+    public float healthRegenCounter;
     
-
+    float attackDistance = 3f;
 
     void Start()
     {
         body = GetComponent<Rigidbody>();
         player = this.transform.gameObject;
-        
         player.transform.rotation = new Quaternion(0f, 180f, 0f, 1f);
     }
+    
     void FixedUpdate()
     {
-       
-
-
-
         vertical = Input.GetAxis("Vertical");
         horizontal = Input.GetAxis("Horizontal");
         
@@ -61,4 +60,22 @@ public class Movement : MonoBehaviour {
             isGrounded = false;
         }
     }
+    void Update () 
+    {
+        //healthRegenCounter += Time.deltaTime;
+        if (healthRegenCounter > 5f)
+        {
+            Regen();
+        }
+    }
+
+    
+
+    public void Regen()
+    {
+      Manager.singleton.health = Manager.singleton.health + 10;
+      healthRegenCounter = 0f;
+
+    }       
+
 }
