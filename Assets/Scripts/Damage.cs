@@ -10,7 +10,8 @@ public class Damage : CamMovement {
 	public bool canDealDMG;
 	public EnemyHealth enemyHP;
 	public GameObject enemy;
-	
+	public HealthBar healthBar;
+	public GameObject playerHPBar;
 	public GameObject enemyHPBar;
 	public Image bar;
 	

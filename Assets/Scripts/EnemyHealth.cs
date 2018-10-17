@@ -4,22 +4,17 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public  class EnemyHealth : MonoBehaviour {
-	public Image bar;
-	public float enemyHealth;
-	public GameObject enemyHPBar;
-	public GameObject HPBar;
+	private Image enemyHealthBar;
+	private float enemyHealth;
+	
+	GameObject sword;
 
 
 	void Start () {
 	enemyHealth = 100;
-	enemyHPBar = GameObject.Find("Enemy Health");
-	HPBar = GameObject.FindGameObjectWithTag("Enemy Health");
- 
-	if(HPBar != null)
-	{
-   		bar = HPBar.GetComponent<Image>();
-   		Debug.Log("I am not null");
-	}
+	sword = GameObject.Find("Sword");
+
+	enemyHealthBar = sword.GetComponent<Damage>().bar;
 	}
 	
 	// Update is called once per frame
@@ -31,7 +26,7 @@ public  class EnemyHealth : MonoBehaviour {
     {
         enemyHealth = enemyHealth - damageTaken;
         
-        bar.fillAmount = enemyHealth / 100f;
+        enemyHealthBar.fillAmount = enemyHealth / 100f;
         if (enemyHealth <= 0f)
         {
         	Destroy();
@@ -41,6 +36,6 @@ public  class EnemyHealth : MonoBehaviour {
     void Destroy()
     {
     	Destroy(this.gameObject);
-    	enemyHPBar.SetActive(false);
+    	
     }
 }

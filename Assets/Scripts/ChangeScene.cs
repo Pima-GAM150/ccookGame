@@ -10,6 +10,7 @@ public class ChangeScene : MonoBehaviour {
 	public void LoadLevel() {
 		SceneManager.LoadScene( levelToLoad );
 		Time.timeScale = 1;
+		Manager.singleton.Deactivate();
 	}
 	
 }

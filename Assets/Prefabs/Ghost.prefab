@@ -398,8 +398,8 @@ MonoBehaviour:
   target: {fileID: 4162463389925884, guid: 404c7a6d0d50ae543b5d3b581e2b910b, type: 2}
   attackingPlayer: 0
   enemyDMG: {fileID: 114736964173610708}
-  bar: {fileID: 0}
-  enemyHPBar: {fileID: 0}
+  bar: {fileID: 114824419312041558, guid: 78a8e042b64a1b747a14565a3b68cbe8, type: 2}
+  enemyHPBar: {fileID: 1059653321268088, guid: 53d1ab2bbff95894c9421728ca419aaa, type: 2}
 --- !u!114 &114523361123308746
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -411,9 +411,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be21d742b3e71e74899c5887177b0d1e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bar: {fileID: 0}
+  bar: {fileID: 114518514559647170, guid: 53d1ab2bbff95894c9421728ca419aaa, type: 2}
   enemyHealth: 0
-  enemyHPBar: {fileID: 0}
+  enemyHPBar: {fileID: 1059653321268088, guid: 53d1ab2bbff95894c9421728ca419aaa, type: 2}
 --- !u!114 &114736964173610708
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -426,7 +426,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 0}
-  healthBar: {fileID: 0}
+  healthBar: {fileID: 114705977577960292, guid: 78a8e042b64a1b747a14565a3b68cbe8,
+    type: 2}
   counter: 0
 --- !u!136 &136339164304319562
 CapsuleCollider:

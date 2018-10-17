@@ -7,11 +7,14 @@ public class EnemyDamage : MonoBehaviour {
 	public GameObject target;
 	public HealthBar healthBar;
 	public float counter;
-
+	GameObject sword;
 	
 	void Start () {
 		target = GameObject.Find("Player");
 		counter = 0f;
+		sword = GameObject.Find("Sword");
+
+		healthBar = sword.GetComponent<Damage>().healthBar;
 	}
 	
 	
@@ -26,29 +29,29 @@ public class EnemyDamage : MonoBehaviour {
 			{
 				if (counter > 1.25f)
 				{
-					DoDamage(5f);
+					DoDamage(15f);
 				}
 			}
 			if (this.gameObject.name == "Ghost Boss")
 			{
 				if (counter > 1.25f)
 				{
-					DoDamage(10f);
+					DoDamage(20f);
 				}
 			}
 			if (this.gameObject.tag == "Undead")
 			{
 				if (counter > 1.75f)
 				{
-					DoDamage(5f);
+					DoDamage(15f);
 					
 				}
 			}
 			if (this.gameObject.tag == "Undead Boss")
 			{
-				if (counter > 1.8f)
+				if (counter > 2.0f)
 				{
-					DoDamage(15f);
+					DoDamage(25f);
 				}
 			}
 		}
@@ -60,9 +63,9 @@ public class EnemyDamage : MonoBehaviour {
 		healthBar.healthRegenCounter = 0f;
 		
 
-		if (Manager.singleton.health < 0)
+		if (Manager.singleton.health <= 0)
 		{
-			//Manager.singleton.GameOverScreen();
+			Manager.singleton.GameOverScreen();
 		}
 
 	}

@@ -6,16 +6,16 @@ public class EnemyController : MonoBehaviour {
 	
 	public GameObject target;
 	private Animator anim;
-	public bool attackingPlayer;
-	public EnemyDamage enemyDMG;
-	public Image bar;
-	public GameObject enemyHPBar;
+	
+	
+	
+	
 	
 	void Start()
 	{
 		target = GameObject.Find("Player");
 		anim = GetComponent<Animator>();
-		enemyHPBar = GameObject.Find("Enemy Health");
+		
 	}
 
 	void Update() 
@@ -24,7 +24,7 @@ public class EnemyController : MonoBehaviour {
 		if(Vector3.Distance(target.transform.position, this.transform.position) < 30)
 		{
 			
-			enemyHPBar.SetActive(true);
+			//enemyHPBar.SetActive(true);
 			
 			Vector3 direction = target.transform.position - this.transform.position;
 			direction.y = 0;

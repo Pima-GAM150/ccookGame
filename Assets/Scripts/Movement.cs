@@ -12,8 +12,7 @@ public class Movement : MonoBehaviour {
     private float horizontal;
     private bool isGrounded;
     GameObject player;
-    public Rigidbody enemy;
-    public EnemyHealth enemyHP;
+    
     public float healthRegenCounter;
     
     void Start()

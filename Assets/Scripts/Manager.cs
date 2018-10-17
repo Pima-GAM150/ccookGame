@@ -2,13 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-
+using UnityEngine.UI;
 public class Manager : MonoBehaviour {
 	
 
 	public static Manager singleton;
     public Tunnel startingTunnel;
-	
+	public GameObject gameOverUI;
 	public int bossCounter;
 	public float health;
 	public int exitSpawn;
@@ -53,6 +53,20 @@ public class Manager : MonoBehaviour {
 
 
 
+	}
+
+	public void GameOverScreen()
+	{
+		Time.timeScale = 0;
+		gameOverUI.SetActive(true);
+		Cursor.visible = true;
+		Cursor.lockState = CursorLockMode.None;
+
+	}
+
+	public void Deactivate()
+	{
+		gameOverUI.SetActive(false);
 	}
 	
 	
