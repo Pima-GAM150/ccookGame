@@ -4,13 +4,13 @@ using UnityEngine;
 
 public class CamMovement : MonoBehaviour {
 	
+    public float lookYAngleLimit;
+    Quaternion startingRot;
+    Quaternion startingPlayerRot;
 
-	Vector2 mouseLook;
-    Vector2 smoothV;
-    public float sensitivity = 5.0f;
-    public float smoothing = 2.0f;
+    public float sensitivity { get; set; }
     GameObject player;
-    public Animator anim;
+    Animator anim;
     
     void Start()
     {
@@ -20,19 +20,24 @@ public class CamMovement : MonoBehaviour {
         Cursor.lockState = CursorLockMode.Locked;
         player = this.transform.parent.gameObject;
  
+        startingRot = transform.localRotation;
+        startingPlayerRot = player.transform.localRotation;
     }
-    void FixedUpdate()
-    {
-        var md = new Vector2(Input.GetAxisRaw("Mouse X"), Input.GetAxisRaw("Mouse Y"));
-        md = Vector2.Scale(md, new Vector2(sensitivity * smoothing, sensitivity * smoothing));
-        smoothV.x = Mathf.Lerp(smoothV.x, md.x, 1f / smoothing);
-        smoothV.y = Mathf.Lerp(smoothV.y, md.y, 1f / smoothing);
-        mouseLook += smoothV;
-        mouseLook.y = Mathf.Clamp(mouseLook.y, -90f, 90f);
 
-        transform.localRotation = Quaternion.AngleAxis(-mouseLook.y, Vector3.right);
-        player.transform.localRotation = Quaternion.AngleAxis(mouseLook.x, player.transform.up);
+    void LateUpdate() {
+        float mouseX = Input.GetAxis( "Mouse X" ) * sensitivity;
+        float mouseY = Input.GetAxis( "Mouse Y" ) * sensitivity;
 
-        
-}
+        Quaternion xRot = Quaternion.AngleAxis( mouseX, Vector3.up );
+        Quaternion yRot = Quaternion.AngleAxis( -mouseY, Vector3.right );
+
+        Quaternion deltaRotY = startingRot * transform.localRotation * yRot;
+        float angleRange = Quaternion.Angle( startingRot, deltaRotY );
+
+        player.transform.localRotation = startingPlayerRot * player.transform.localRotation * xRot;
+
+        if( angleRange < lookYAngleLimit ) {
+            transform.localRotation = deltaRotY;
+        }
+    }
 }

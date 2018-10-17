@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 
 
-public class Damage : CamMovement {
+public class Damage : MonoBehaviour {
 	
 	public bool canAttack;
 	public bool canDealDMG;
@@ -15,7 +15,7 @@ public class Damage : CamMovement {
 	public GameObject enemyHPBar;
 	public Image bar;
 	
-
+	Animator anim;
 
 	void Start () {
 		
@@ -25,7 +25,7 @@ public class Damage : CamMovement {
 	}
 	
 	// Update is called once per frame
-	void FixedUpdate () {
+	void Update () {
 		
 		
 		if (Input.GetMouseButtonDown(0))
