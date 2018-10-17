@@ -16,8 +16,6 @@ public class Movement : MonoBehaviour {
     public EnemyHealth enemyHP;
     public float healthRegenCounter;
     
-    float attackDistance = 3f;
-
     void Start()
     {
         body = GetComponent<Rigidbody>();

@@ -37,36 +37,22 @@ public class Damage : CamMovement {
 
 	void OnTriggerEnter (Collider col)
 	{
-		if(canAttack == true)
-		{	
+		
 
 			if (col.gameObject.tag == "Enemy")
 			{
 				enemy = col.gameObject;
 				
-				canDealDMG = true;
+				dealDMG();
 				Debug.Log("I am hitting this " + enemy);
-				canAttack = false;
+				
 			
 			}
-		}
-		else
-		{
-			canAttack = false;
-		}	
+		
+		
 	}
 
-	void OnTriggerExit (Collider col)
-	{
-		
-			
-			if (col.gameObject.tag == "Enemy")
-			{
-				
-				canDealDMG = false;
-				canAttack = true;
-			}
-	}
+	
 
 	void dealDMG()
 	{
@@ -76,7 +62,7 @@ public class Damage : CamMovement {
 			enemyHP.takeDMG(25f);
 			
 		}
-		else
+		if(enemy.tag == "Boss")
 		{
 			enemyHP = enemy.GetComponent<EnemyHealth>();
 			enemyHP.takeDMG(18f);

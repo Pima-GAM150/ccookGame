@@ -81,6 +81,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4994153461392472}
+  - component: {fileID: 136339164304319562}
+  - component: {fileID: 114736964173610708}
   m_Layer: 0
   m_Name: Ghost
   m_TagString: Untagged
@@ -99,8 +101,8 @@ GameObject:
   - component: {fileID: 114401774096427080}
   - component: {fileID: 54393932656321914}
   - component: {fileID: 136719259186519402}
-  - component: {fileID: 95110844570485624}
   - component: {fileID: 114523361123308746}
+  - component: {fileID: 95211442964755034}
   m_Layer: 0
   m_Name: Ghost
   m_TagString: Enemy
@@ -283,7 +285,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1743664425613924}
   m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
-  m_LocalPosition: {x: 44, y: -5, z: -40}
+  m_LocalPosition: {x: 44, y: -5, z: -33}
   m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_Children:
   - {fileID: 4994153461392472}
@@ -364,7 +366,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 126
   m_CollisionDetection: 0
---- !u!95 &95110844570485624
+--- !u!95 &95211442964755034
 Animator:
   serializedVersion: 3
   m_ObjectHideFlags: 1
@@ -395,9 +397,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 4162463389925884, guid: 404c7a6d0d50ae543b5d3b581e2b910b, type: 2}
   attackingPlayer: 0
-  counter: 0
+  enemyDMG: {fileID: 114736964173610708}
   bar: {fileID: 0}
-  healthBar: {fileID: 0}
+  enemyHPBar: {fileID: 0}
 --- !u!114 &114523361123308746
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -411,7 +413,34 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bar: {fileID: 0}
   enemyHealth: 0
-  parent: {fileID: 0}
+  enemyHPBar: {fileID: 0}
+--- !u!114 &114736964173610708
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1603837720723888}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6c042ece5444da049b7fe1eadb537393, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target: {fileID: 0}
+  healthBar: {fileID: 0}
+  counter: 0
+--- !u!136 &136339164304319562
+CapsuleCollider:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1603837720723888}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  m_Radius: 2.8214252
+  m_Height: 5.9871874
+  m_Direction: 1
+  m_Center: {x: 0.4867978, y: 0, z: -0.00000011606163}
 --- !u!136 &136719259186519402
 CapsuleCollider:
   m_ObjectHideFlags: 1
@@ -422,6 +451,6 @@ CapsuleCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   m_Radius: 1.9665527
-  m_Height: 3.9331055
+  m_Height: 5.9871874
   m_Direction: 1
-  m_Center: {x: 0.0106191635, y: 0.84334373, z: -0.9628639}
+  m_Center: {x: 0.0106191635, y: 1.8703847, z: -0.9628639}
