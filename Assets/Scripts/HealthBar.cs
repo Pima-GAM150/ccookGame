@@ -33,7 +33,7 @@ public class HealthBar : MonoBehaviour {
 
 	}
 
-    public void takeDMG( float damageTaken)
+    /*public void takeDMG( float damageTaken)
     {
         
         health = health - damageTaken;
@@ -44,7 +44,7 @@ public class HealthBar : MonoBehaviour {
         {
           //pause time and show gameover screen
         }
-    }
+    }*/
 
     public void Regen()
     {

@@ -6,6 +6,9 @@ TagManager:
   tags:
   - Ground
   - Enemy
+  - Undead Boss
+  - Undead
+  - Enemy Health
   layers:
   - Default
   - TransparentFX

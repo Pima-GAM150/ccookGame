@@ -118,7 +118,7 @@ Mesh:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: pb_Mesh-1286386
+  m_Name: pb_Mesh-493286
   serializedVersion: 9
   m_SubMeshes:
   - serializedVersion: 2
@@ -273,7 +273,7 @@ Mesh:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: pb_Mesh-1286382
+  m_Name: pb_Mesh-493282
   serializedVersion: 9
   m_SubMeshes:
   - serializedVersion: 2
@@ -544,6 +544,11 @@ Prefab:
       propertyPath: speed
       value: 300
       objectReference: {fileID: 0}
+    - target: {fileID: 224099388267718494, guid: 404c7a6d0d50ae543b5d3b581e2b910b,
+        type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 404c7a6d0d50ae543b5d3b581e2b910b, type: 2}
   m_IsPrefabAsset: 0
@@ -552,7 +557,7 @@ Mesh:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: pb_Mesh-1286444
+  m_Name: pb_Mesh-493502
   serializedVersion: 9
   m_SubMeshes:
   - serializedVersion: 2
@@ -707,7 +712,7 @@ Mesh:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: pb_Mesh-1286384
+  m_Name: pb_Mesh-493284
   serializedVersion: 9
   m_SubMeshes:
   - serializedVersion: 2
@@ -942,6 +947,18 @@ Prefab:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 880391142}
+    - target: {fileID: 114584487444432396, guid: a05e8a54983f42f44b57a2be37f50f74,
+        type: 2}
+      propertyPath: undead
+      value: 
+      objectReference: {fileID: 1631706570425700, guid: 7629f5caf933c0e46ada4cc26786b7a7,
+        type: 2}
+    - target: {fileID: 114584487444432396, guid: a05e8a54983f42f44b57a2be37f50f74,
+        type: 2}
+      propertyPath: ghost
+      value: 
+      objectReference: {fileID: 1743664425613924, guid: f963c1cae7a3b394fbcbe8437f633a10,
+        type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a05e8a54983f42f44b57a2be37f50f74, type: 2}
   m_IsPrefabAsset: 0

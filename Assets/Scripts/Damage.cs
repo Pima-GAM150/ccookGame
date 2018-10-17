@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+
 
 public class Damage : CamMovement {
 	
@@ -9,6 +11,11 @@ public class Damage : CamMovement {
 	public EnemyHealth enemyHP;
 	public GameObject enemy;
 	
+	public GameObject enemyHPBar;
+	public Image bar;
+	
+
+
 	void Start () {
 		
 		canAttack = true;
@@ -22,14 +29,8 @@ public class Damage : CamMovement {
 		
 		if (Input.GetMouseButtonDown(0))
        {
-            anim.SetTrigger("attack");
-            
-            if(canDealDMG == true)
-            {
-            	dealDMG();
-            }
-        	
-
+           anim.SetTrigger("attack");
+           
        }
        
        
@@ -42,7 +43,9 @@ public class Damage : CamMovement {
 			if (col.gameObject.tag == "Enemy")
 			{
 				enemy = col.gameObject;
-				
+				enemyHPBar.SetActive(true);
+
+				//bar.fillAmount = enemyHealth / 100f;
 				dealDMG();
 				Debug.Log("I am hitting this " + enemy);
 				

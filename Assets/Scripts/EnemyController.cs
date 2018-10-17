@@ -15,7 +15,7 @@ public class EnemyController : MonoBehaviour {
 	{
 		target = GameObject.Find("Player");
 		anim = GetComponent<Animator>();
-		
+		enemyHPBar = GameObject.Find("Enemy Health");
 	}
 
 	void Update() 

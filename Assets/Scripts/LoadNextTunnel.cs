@@ -9,6 +9,7 @@ public class LoadNextTunnel : MonoBehaviour {
 	public Tunnel rightTunnel;
 	public Tunnel exit;
 	
+ 
 	
 	Vector3 thisObjectsPosition;
 
@@ -43,7 +44,18 @@ public class LoadNextTunnel : MonoBehaviour {
                         Manager.singleton.exitSpawn += 1;
                         currentTunnel = newTunnel;
                         newTunnel.socket.transform.localEulerAngles = new Vector3(0f, Manager.singleton.currentRotation, 0f);
-                        
+                            if (rng >= 2.5f)
+                            {
+                                Transform newGhost = currentTunnel.transform.Find("Ghost");
+                                GameObject ghost = newGhost.gameObject; 
+                                ghost.SetActive(true);                               
+                            }
+                            else
+                            {
+                                Transform newUndead = currentTunnel.transform.Find("Undead Knight");
+                                GameObject undead = newUndead.gameObject; 
+                                undead.SetActive(true);
+                            }
                         }
 
                         else if (rng >= 1f)
@@ -56,7 +68,18 @@ public class LoadNextTunnel : MonoBehaviour {
                         currentTunnel = newTunnel;
                         Manager.singleton.currentRotation += -90f;
                         newTunnel.socket.transform.localEulerAngles = new Vector3(0f, Manager.singleton.currentRotation, 0f);
-                        
+                            if (rng >= 1.5f)
+                            {
+                                Transform newGhost = currentTunnel.transform.Find("Ghost");
+                                GameObject ghost = newGhost.gameObject; 
+                                ghost.SetActive(true);                               
+                            }
+                            else
+                            {
+                                Transform newUndead = currentTunnel.transform.Find("Undead Knight");
+                                GameObject undead = newUndead.gameObject; 
+                                undead.SetActive(true);
+                            }
                         }
 
                         else if (rng >= 0f)
@@ -69,7 +92,18 @@ public class LoadNextTunnel : MonoBehaviour {
                         currentTunnel = newTunnel;
                         Manager.singleton.currentRotation += 90f;
                         newTunnel.socket.transform.localEulerAngles = new Vector3(0f, Manager.singleton.currentRotation, 0f);
-
+                            if (rng >= 0.5f)
+                            {
+                                Transform newGhost = currentTunnel.transform.Find("Ghost");
+                                GameObject ghost = newGhost.gameObject; 
+                                ghost.SetActive(true);                               
+                            }
+                            else
+                            {
+                                Transform newUndead = currentTunnel.transform.Find("Undead Knight");
+                                GameObject undead = newUndead.gameObject; 
+                                undead.SetActive(true);
+                            }
                         
                         }
                     }

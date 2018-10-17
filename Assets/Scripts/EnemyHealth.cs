@@ -7,12 +7,19 @@ public  class EnemyHealth : MonoBehaviour {
 	public Image bar;
 	public float enemyHealth;
 	public GameObject enemyHPBar;
-	
+	public GameObject HPBar;
 
 
 	void Start () {
 	enemyHealth = 100;
-	enemyHPBar = GameObject.Find("EnemyHP BG");
+	enemyHPBar = GameObject.Find("Enemy Health");
+	HPBar = GameObject.FindGameObjectWithTag("Enemy Health");
+ 
+	if(HPBar != null)
+	{
+   		bar = HPBar.GetComponent<Image>();
+   		Debug.Log("I am not null");
+	}
 	}
 	
 	// Update is called once per frame
@@ -23,6 +30,7 @@ public  class EnemyHealth : MonoBehaviour {
 	public void takeDMG( float damageTaken)
     {
         enemyHealth = enemyHealth - damageTaken;
+        
         bar.fillAmount = enemyHealth / 100f;
         if (enemyHealth <= 0f)
         {
