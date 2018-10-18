@@ -9,18 +9,22 @@ public class Manager : MonoBehaviour {
 	public static Manager singleton;
     public Tunnel startingTunnel;
 	public GameObject gameOverUI;
+	public GameObject winScreen;
 	public int bossCounter;
 	public float health;
 	public int exitSpawn;
 	public float currentRotation;
 	public bool attackingPlayer = false;
-	
+	public AudioSource bossMusic;
+	public AudioSource levelMusic;
+
 	
 
     public Tunnel currentTunnel;
 
 	void Awake()
 	{
+		health = 100;
 		if (singleton == null)
 		{
 			singleton = this;
@@ -35,13 +39,18 @@ public class Manager : MonoBehaviour {
 	public void LoadNewScene()
 	{
 		bossCounter++;
-		if( bossCounter > 5)
+		if( bossCounter > 2)
 		{
 			SceneManager.LoadScene("BossScene");
+			bossMusic.volume = 0.25f;
+			levelMusic.volume = 0f;
 		}
 		else 
 		{
-			
+			bossMusic.volume = 0f;
+			levelMusic.volume = 0.25f;
+
+
 			SceneManager.LoadScene("LevelScene");
 			GameObject enter = GameObject.Find("NewSceneTrigger");
 			enter.SetActive(true);
@@ -67,9 +76,18 @@ public class Manager : MonoBehaviour {
 	public void Deactivate()
 	{
 		gameOverUI.SetActive(false);
+		winScreen.SetActive(false);
+		health = 100;
 	}
 	
-	
+	public void WinScreen()
+	{
+		Time.timeScale = 0;
+		winScreen.SetActive(true);
+		Cursor.visible = true;
+		Cursor.lockState = CursorLockMode.None;
+
+	}
 	
 
 

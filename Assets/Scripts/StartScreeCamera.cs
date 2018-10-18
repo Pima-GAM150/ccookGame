@@ -23,9 +23,9 @@ public class StartScreeCamera : MonoBehaviour {
 		//velocity.y = body.velocity.y;
 		body.velocity = velocity;
 
-		if (cam.transform.position.z >= 100f)
+		if (cam.transform.position.z >= 125f)
 		{
-			cam.transform.position = new Vector3(3f, -6f, startPosition);
+			cam.transform.position = new Vector3(0f, 8f, startPosition);
 		}
 	}
 }

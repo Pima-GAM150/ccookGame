@@ -12,5 +12,15 @@ public class ChangeScene : MonoBehaviour {
 		Time.timeScale = 1;
 		Manager.singleton.Deactivate();
 	}
-	
+
+	public void StartTime()
+	{
+		Time.timeScale = 1;
+		GameObject pauseCanvas = GameObject.Find("Pause Canvas");
+		pauseCanvas.SetActive(false);
+		Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.Locked;
+
+	}
+
 }

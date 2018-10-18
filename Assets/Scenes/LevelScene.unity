@@ -118,7 +118,7 @@ Mesh:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: pb_Mesh-1984
+  m_Name: pb_Mesh-372614
   serializedVersion: 9
   m_SubMeshes:
   - serializedVersion: 2
@@ -273,7 +273,7 @@ Mesh:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: pb_Mesh-1980
+  m_Name: pb_Mesh-372610
   serializedVersion: 9
   m_SubMeshes:
   - serializedVersion: 2
@@ -470,6 +470,11 @@ Prefab:
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 404c7a6d0d50ae543b5d3b581e2b910b, type: 2}
   m_IsPrefabAsset: 0
+--- !u!82 &394846464 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 82296007251056206, guid: 404c7a6d0d50ae543b5d3b581e2b910b,
+    type: 2}
+  m_PrefabInternal: {fileID: 394846463}
 --- !u!1001 &408180419
 Prefab:
   m_ObjectHideFlags: 0
@@ -514,15 +519,16 @@ Prefab:
       propertyPath: startingTunnel
       value: 
       objectReference: {fileID: 1097047378}
-    - target: {fileID: 224319305924708708, guid: 5b1d57fb9986c414ebf5042d80932cae,
+    - target: {fileID: 114190357966834024, guid: 5b1d57fb9986c414ebf5042d80932cae,
         type: 2}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1289881008103984, guid: 5b1d57fb9986c414ebf5042d80932cae, type: 2}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
+      propertyPath: bossMusic
+      value: 
+      objectReference: {fileID: 394846464}
+    - target: {fileID: 114190357966834024, guid: 5b1d57fb9986c414ebf5042d80932cae,
+        type: 2}
+      propertyPath: levelMusic
+      value: 
+      objectReference: {fileID: 1757484863}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5b1d57fb9986c414ebf5042d80932cae, type: 2}
   m_IsPrefabAsset: 0
@@ -593,7 +599,7 @@ Mesh:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: pb_Mesh-2202
+  m_Name: pb_Mesh-372686
   serializedVersion: 9
   m_SubMeshes:
   - serializedVersion: 2
@@ -748,7 +754,7 @@ Mesh:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: pb_Mesh-1982
+  m_Name: pb_Mesh-372612
   serializedVersion: 9
   m_SubMeshes:
   - serializedVersion: 2
@@ -3082,3 +3088,8 @@ Prefab:
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a05e8a54983f42f44b57a2be37f50f74, type: 2}
   m_IsPrefabAsset: 0
+--- !u!82 &1757484863 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 82318905481713132, guid: 404c7a6d0d50ae543b5d3b581e2b910b,
+    type: 2}
+  m_PrefabInternal: {fileID: 394846463}

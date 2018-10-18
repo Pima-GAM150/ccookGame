@@ -60,16 +60,28 @@ public class Damage : MonoBehaviour {
 
 	void dealDMG()
 	{
-		if(enemy.tag == "Enemy")
+		if(enemy.name == "Ghost")
 		{
 			enemyHP = enemy.GetComponent<EnemyHealth>();
 			enemyHP.takeDMG(25f);
 			
 		}
-		if(enemy.tag == "Boss")
+		if(enemy.name == "Ghost Boss")
 		{
 			enemyHP = enemy.GetComponent<EnemyHealth>();
 			enemyHP.takeDMG(18f);
+			
+		}
+		if(enemy.name == "Undead Knight")
+		{
+			enemyHP = enemy.GetComponent<EnemyHealth>();
+			enemyHP.takeDMG(20f);
+			
+		}
+		if(enemy.name == "Undead Knight Boss")
+		{
+			enemyHP = enemy.GetComponent<EnemyHealth>();
+			enemyHP.takeDMG(15f);
 			
 		}
 

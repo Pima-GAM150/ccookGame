@@ -32,14 +32,14 @@ public class EnemyDamage : MonoBehaviour {
 					DoDamage(15f);
 				}
 			}
-			if (this.gameObject.name == "Ghost Boss")
+			if (this.transform.parent.name == "Ghost Boss")
 			{
 				if (counter > 1.25f)
 				{
 					DoDamage(20f);
 				}
 			}
-			if (this.gameObject.tag == "Undead")
+			if (this.gameObject.name == "Undead Knight")
 			{
 				if (counter > 1.75f)
 				{
@@ -47,7 +47,7 @@ public class EnemyDamage : MonoBehaviour {
 					
 				}
 			}
-			if (this.gameObject.tag == "Undead Boss")
+			if (this.transform.parent.name == "Undead Knight Boss")
 			{
 				if (counter > 2.0f)
 				{

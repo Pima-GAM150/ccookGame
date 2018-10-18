@@ -12,13 +12,15 @@ public class Movement : MonoBehaviour {
     private float horizontal;
     private bool isGrounded;
     GameObject player;
-    
     public float healthRegenCounter;
+    public GameObject pauseCanvas;
+ 
     
     void Start()
     {
         body = GetComponent<Rigidbody>();
         player = this.transform.gameObject;
+
     }
     
     void FixedUpdate()
@@ -26,7 +28,13 @@ public class Movement : MonoBehaviour {
         vertical = Input.GetAxis("Vertical");
         horizontal = Input.GetAxis("Horizontal");
         
-
+        if( Input.GetButtonDown("Cancel"))
+        {
+            Time.timeScale = 0;
+            Cursor.visible = true;
+            Cursor.lockState = CursorLockMode.None;
+            pauseCanvas.SetActive(true);
+        }
         if (Input.GetAxis("Jump") > 0)
         {
             if (isGrounded)

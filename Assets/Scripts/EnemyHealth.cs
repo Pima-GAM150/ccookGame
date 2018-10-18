@@ -35,7 +35,17 @@ public  class EnemyHealth : MonoBehaviour {
 
     void Destroy()
     {
-    	Destroy(this.gameObject);
-    	
+    	if(this.gameObject.name == "Ghost Boss")
+    	{
+    		Manager.singleton.WinScreen();
+    	}
+    	if(this.gameObject.name == "Undead Knight Boss")
+    	{
+    		Manager.singleton.WinScreen();
+    	}
+    	else
+    	{
+    		Destroy(this.gameObject);
+    	}
     }
 }

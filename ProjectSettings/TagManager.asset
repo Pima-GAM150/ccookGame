@@ -9,6 +9,7 @@ TagManager:
   - Undead Boss
   - Undead
   - Enemy Health
+  - Ghost Boss
   layers:
   - Default
   - TransparentFX
