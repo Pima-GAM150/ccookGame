@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public  class EnemyHealth : MonoBehaviour {
 	private Image enemyHealthBar;
-	private float enemyHealth;
+	public float enemyHealth;
 	
 	GameObject sword;
 
@@ -27,6 +27,7 @@ public  class EnemyHealth : MonoBehaviour {
         enemyHealth = enemyHealth - damageTaken;
         
         enemyHealthBar.fillAmount = enemyHealth / 100f;
+        Debug.Log("I did damage");
         if (enemyHealth <= 0f)
         {
         	Destroy();

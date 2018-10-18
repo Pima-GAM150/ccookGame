@@ -37,7 +37,6 @@ GameObject:
   m_Component:
   - component: {fileID: 4776867689450622}
   - component: {fileID: 95754169659925214}
-  - component: {fileID: 54184946411584436}
   - component: {fileID: 136084648685453132}
   m_Layer: 0
   m_Name: Undead Knight
@@ -516,21 +515,6 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1331321963085032}
   m_Mesh: {fileID: 4300010, guid: 1418c5d8361e608488dce8e1ec4821db, type: 3}
---- !u!54 &54184946411584436
-Rigidbody:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1126212516892956}
-  serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_UseGravity: 1
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 122
-  m_CollisionDetection: 0
 --- !u!54 &54304749632206184
 Rigidbody:
   m_ObjectHideFlags: 1
@@ -631,6 +615,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be21d742b3e71e74899c5887177b0d1e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemyHealth: 0
 --- !u!136 &136084648685453132
 CapsuleCollider:
   m_ObjectHideFlags: 1

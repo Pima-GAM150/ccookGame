@@ -37,7 +37,7 @@ GameObject:
   - component: {fileID: 136271678179883352}
   - component: {fileID: 114960638972946246}
   m_Layer: 0
-  m_Name: Ghost
+  m_Name: Ghost Boss
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -375,7 +375,7 @@ Animator:
   m_GameObject: {fileID: 1201716054855594}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: f4c9690b7b3c4e14eb544d2d421d88a3, type: 2}
+  m_Controller: {fileID: 9100000, guid: 5a7474a3e38a1c74fa20ecf38270156a, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -407,6 +407,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be21d742b3e71e74899c5887177b0d1e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemyHealth: 0
 --- !u!114 &114960638972946246
 MonoBehaviour:
   m_ObjectHideFlags: 1
