@@ -19,7 +19,6 @@ public class Movement : MonoBehaviour {
     {
         body = GetComponent<Rigidbody>();
         player = this.transform.gameObject;
-        player.transform.rotation = new Quaternion(0f, 180f, 0f, 1f);
     }
     
     void FixedUpdate()
